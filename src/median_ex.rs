@@ -1,5 +1,6 @@
 mod func;
 pub use self::func::done;
+pub use self::func::done_vec;
 pub use self::func::generate;
 pub use self::func::generate_vec;
 

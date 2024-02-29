@@ -17,10 +17,12 @@ fn main() {
     if errc {
         println!("Median is: {med}, mode is: {mode}");
     }    
-
+    let (med_v, mode_v, err_v) = median_ex::done_vec(&numbers_vec);
+    
     println!["{:?}", numbers2];
     println!("{:?}", numbers_vec);
 
+    println!("Median is: {med_v}, mode is: {mode_v}");
     //Second exercise: from string of text take pig latin string
     println!("Say your words!");
     let text = input_string();
@@ -32,7 +34,8 @@ fn main() {
 fn input_length() -> usize {
     let mut lenght_string = String::new();
     loop {
-        io::stdin().read_line(&mut lenght_string).expect("Failed to read line");
+        io::stdin().read_line(&mut lenght_string)
+                        .expect("Failed to read line");
 
         let lenght_num = match lenght_string.trim_end().parse::<usize>() {
             Ok(num) => num,
@@ -44,9 +47,9 @@ fn input_length() -> usize {
         };
         return lenght_num
     }
-
 }
 
 fn input_string() -> String {
     "ABCDE. This is last warning!111".to_string()
 }
+

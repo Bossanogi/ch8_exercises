@@ -1,5 +1,3 @@
-use core::num;
-
 use super::I;
 
 pub fn done(nums: &[f32; I]) -> (f32, f32, bool) {
@@ -8,8 +6,8 @@ pub fn done(nums: &[f32; I]) -> (f32, f32, bool) {
         errc = true;
     }
 
-    let mut median = takemedian(nums);
-    let mut mode = takemode(nums);
+    let median = takemedian(nums);
+    let mode = takemode(nums);
     
     (median, mode, errc)
 }

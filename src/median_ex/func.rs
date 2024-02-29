@@ -1,6 +1,8 @@
-use super::I;
+use super::{LENGTH, TOP};
+use rand::prelude::*;
 
-pub fn done(nums: &[f32; I]) -> (f32, f32, bool) {
+
+pub fn done(nums: &[i32; LENGTH]) -> (f32, f32, bool) {
     let mut errc = false;
     if nums.len() != 0 {
         errc = true;
@@ -12,18 +14,28 @@ pub fn done(nums: &[f32; I]) -> (f32, f32, bool) {
     (median, mode, errc)
 }
 
-pub fn generate() -> [f32; I] {
-    let mut numbers: [f32; I] = [0.0; I];
-    for i in 0..I {
-        numbers[i] = i as f32 + 3.0;
+pub fn generate() -> [i32; LENGTH] {
+    let mut rng = thread_rng();
+    let mut numbers: [i32; LENGTH] = [0; LENGTH];
+    for i in 0..LENGTH {
+        numbers[i] = rng.gen_range(0..TOP);
     }
     numbers
 }
 
-fn takemedian(nums: &[f32; I]) -> f32 {
+pub fn generate_vec(length: usize) -> Vec<i32> {
+    let mut rng = thread_rng();
+    let mut v: Vec<i32> = Vec::new();
+    for _ in 0..length {
+        v.push(rng.gen_range(0..100));
+    }
+    v
+}
+
+fn takemedian(nums: &[i32; LENGTH]) -> f32 {
     nums.len() as f32 * 2.0
 }
 
-fn takemode(nums: &[f32; I]) -> f32 {
+fn takemode(nums: &[i32; LENGTH]) -> f32 {
     nums.len() as f32  * 3.0
 }

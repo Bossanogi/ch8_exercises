@@ -12,10 +12,11 @@ pub fn convert(text: &String) -> String {
     
     for word in words {
         let mut pig_word = String::new();
+
         if consonant_reg.is_match(word) {
-            pig_word = pig_consonant(&word);
+            pig_word = pig_consonant(word);
         } else if  vowel_reg.is_match(word){
-            pig_word = pig_vowel(&word);
+            pig_word = pig_vowel(word);
         }
         pig_words.push(pig_word);
     }

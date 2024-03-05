@@ -7,8 +7,8 @@ pub fn convert(text: &String) -> String {
 
     let mut pig_words: Vec<String> = Vec::new();
     let words = text.split_whitespace();
-    let consonant_reg = Regex::new(r"[[:<:]][bcdfjghklmnprstvwxz]").unwrap();
-    let vowel_reg = Regex::new("r[[:<:]][aeiouy]").unwrap();
+    let consonant_reg = Regex::new(r"^[bcdfjghklmnprstvwxz]").unwrap();
+    let vowel_reg = Regex::new("r^[aeiouy]").unwrap();
     
     for word in words {
         let mut pig_word = String::new();
